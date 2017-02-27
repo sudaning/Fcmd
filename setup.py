@@ -1,5 +1,5 @@
 from setuptools import find_packages, setup
-from neko import __version__ as version
+from freg import __version__ as version
 
 author = 'Daning Su'
 author_email = 'sudaning@sina.com'
@@ -8,9 +8,9 @@ description = "A pure Python library designed to show the information about what
 long_description = '''
 '''
 
-install_requires = [
-	'pyNeko>=3.1',
-]
+with open('./requirements.txt', 'r') as f:
+	 requirements = f.readlines()
+	 install_requires = [x for x in requirements if (x and x[0] != '#')]
 
 license = 'LICENSE'
 
