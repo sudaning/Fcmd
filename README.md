@@ -9,7 +9,7 @@
 
 ##Introduction
 
-Freg is a pure Python library designed to show the information about what you specify user on FREESWITCH.
+Freg is a pure Python library designed to show the information about what you specify user on [FREESWITCH](https://freeswitch.org/).
 In [/scripts](https://github.com/sudaning/Freg/tree/master/scripts) , there are some scripts written by me for daily use.
 
 ##Installation
