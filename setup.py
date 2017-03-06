@@ -1,9 +1,9 @@
 from setuptools import find_packages, setup
-from freg import __version__ as version
+from fcmd import __version__ as version
 
 author = 'Daning Su'
 author_email = 'sudaning@sina.com'
-description = "A pure Python library designed to show the information about what you specify user on FREESWITCH"
+description = "A pure Python library designed to show the information about what you specify on FREESWITCH"
 
 long_description = '''
 '''
@@ -14,9 +14,9 @@ with open('./requirements.txt', 'r') as f:
 
 license = 'LICENSE'
 
-name = 'pyFreg'
+name = 'pyFcmd'
 packages = [
-	'freg',
+	'fcmd',
 ]
 platforms = ['linux']
 url = 'https://github.com/sudaning/Freg'
