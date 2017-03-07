@@ -5,6 +5,19 @@ import os,sys
 from cmd import FCmd
 from neko import color_str, ProcBar
 
+
+class Cmd(FCmd):
+
+	def run(self, cmd=''):
+		p = ProcBar().start("execute cmd %s ..." % color_str(cmd, "yellow"))
+		try:
+			FCmd.run(self, cmd=cmd)
+		except Exception as err:
+			p and p.stop(color_str(str(err), "red"))
+			return False
+		p.stop(color_str("OK", "green"))
+
+
 class RegUser(FCmd):
 
 	def run(self, profile='internal', number=''):

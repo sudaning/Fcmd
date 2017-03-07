@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- 
 
-from fcmd import RegUser
+from fcmd import RegUser, Cmd
 
 if __name__ == '__main__':
 
@@ -16,10 +16,17 @@ if __name__ == '__main__':
 
 	parser.add_option('-f', '--profile', dest='profile', default="sipp", help="profile. default:'%default'")
 	parser.add_option('-n', '--num', dest='num', default='', help="number. default:'%default'")
+	parser.add_option('-c', '--cmd', dest='cmd', default='', help="command. default:'%default'")
 
 	(options, args) = parser.parse_args() 
 
-	with RegUser(debug=True) as reguser:
-		reguser.login(host=options.host, user=options.user, password=options.password)
-		reguser.run(profile=options.profile, number=options.num)
-		reguser.show()
+	if options.cmd:
+		with Cmd(debug=True) as c:
+			c.login(host=options.host, user=options.user, password=options.password)
+			c.run(cmd=options.cmd)
+			c.show()
+	else:
+		with RegUser(debug=True) as reguser:
+			reguser.login(host=options.host, user=options.user, password=options.password)
+			reguser.run(profile=options.profile, number=options.num)
+			reguser.show()
