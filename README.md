@@ -30,7 +30,7 @@ if __name__ == '__main__':
 	from optparse import OptionParser
 	usage = "usage: \n\tpython %prog [options]" + \
 		"\nFor example: " + \
-		"\n\tpython %prog -s 114.119.11.59 -u root -p root -n 18682099276"
+		"\n\tpython %prog -s 192.168.0.2 -u root -p root -n 075536384596"
 	parser = OptionParser(usage=usage, version="%prog V1.0")
 	parser.add_option('-s', '--host', dest='host', default='114.119.11.59',help="SSH IP. default:'%default'")
 	parser.add_option('-u', '--user', dest='user', default='root', help="SSH port. default:'%default'")
@@ -38,13 +38,20 @@ if __name__ == '__main__':
 
 	parser.add_option('-f', '--profile', dest='profile', default="sipp", help="profile. default:'%default'")
 	parser.add_option('-n', '--num', dest='num', default='', help="number. default:'%default'")
+	parser.add_option('-c', '--cmd', dest='cmd', default='', help="command. default:'%default'")
 
 	(options, args) = parser.parse_args() 
 
-	with RegUser(debug=True) as reguser:
-		reguser.login(host=options.host, user=options.user, password=options.password)
-		reguser.run(profile=options.profile, number=options.num)
-		reguser.show()
+	if options.cmd:
+		with Cmd(debug=True) as c:
+			c.login(host=options.host, user=options.user, password=options.password)
+			c.run(cmd=options.cmd)
+			c.show()
+	else:
+		with RegUser(debug=True) as reguser:
+			reguser.login(host=options.host, user=options.user, password=options.password)
+			reguser.run(profile=options.profile, number=options.num)
+			reguser.show()
 ```
 
 ##From the author
