@@ -18,7 +18,7 @@ if __name__ == '__main__':
 	parser.add_option('-n', '--num', dest='num', default='', help="number. default:'%default'")
 	parser.add_option('-c', '--cmd', dest='cmd', default='', help="command. default:'%default'")
 
-	(options, args) = parser.parse_args() 
+	(options, args) = parser.parse_args()
 
 	if options.cmd:
 		with Cmd(debug=True) as c:

@@ -19,7 +19,7 @@ packages = [
 	'fcmd',
 ]
 platforms = ['linux']
-url = 'https://github.com/sudaning/Freg'
+url = 'https://github.com/sudaning/Fcmd'
 download_url = ''
 classifiers = [
 	'Development Status :: 5 - Production/Stable',
