@@ -1,12 +1,12 @@
-#Welcome to Fcmd
+# Welcome to Fcmd
 [![Version][version-badge]][version-link] ![Supported-python-version][python27-badge] [![Build Status][travis-badge]][travis-link]  [![Coverage][coverage-badge]][coverage-link] ![Star][stars] ![Fork][forks] [![MIT License][license-badge]](LICENSE.md)
 
-##Introduction
+## Introduction
 
 Freg is a pure Python library designed to show the information about what you specify on [FREESWITCH](https://freeswitch.org/).
 In [/scripts](https://github.com/sudaning/Freg/tree/master/scripts) , there are some scripts written by me for daily use.
 
-##Installation
+## Installation
 1. Via **pip**  
 ```pip install Fcmd```  
 2. Via **easy_install**  
@@ -14,11 +14,11 @@ In [/scripts](https://github.com/sudaning/Freg/tree/master/scripts) , there are 
 3. From **source**(recommend)   
 ```python setup.py install```  
 
-##upgrading
+## upgrading
 1. Via **pip**  
 ```pip install --upgrade pyFcmd```
 
-##Examples
+## Examples
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- 
@@ -54,7 +54,7 @@ if __name__ == '__main__':
 			reguser.show()
 ```
 
-##From the author
+## From the author
 **Welcome to use Fcmd (●'◡'●)ﾉ♥**  
 If you find any bug, please report it to me by opening a issue.
 Fcmd needs to be improved, your contribution will be welcomed.
