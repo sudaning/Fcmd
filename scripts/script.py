@@ -12,6 +12,7 @@ if __name__ == '__main__':
 	parser = OptionParser(usage=usage, version="%prog V1.0")
 	parser.add_option('-s', '--host', dest='host', default='114.119.11.59',help="SSH IP. default:'%default'")
 	parser.add_option('-u', '--user', dest='user', default='root', help="SSH port. default:'%default'")
+	parser.add_option('--port', dest='port', default=2022, type='int', help="SSH port. default:'%default'")
 	parser.add_option('-p', '--password', dest='password', default='root', help="SSH password. default:'%default'")
 
 	parser.add_option('-f', '--profile', dest='profile', default="sipp", help="profile. default:'%default'")
@@ -22,11 +23,11 @@ if __name__ == '__main__':
 
 	if options.cmd:
 		with Cmd(debug=True) as c:
-			c.login(host=options.host, user=options.user, password=options.password)
+			c.login(host=options.host, port=options.port, user=options.user, password=options.password)
 			c.run(cmd=options.cmd)
 			c.show()
 	else:
 		with RegUser(debug=True) as reguser:
-			reguser.login(host=options.host, user=options.user, password=options.password)
+			reguser.login(host=options.host, port=options.port, user=options.user, password=options.password)
 			reguser.run(profile=options.profile, number=options.num)
 			reguser.show()

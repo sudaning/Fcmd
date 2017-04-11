@@ -23,14 +23,14 @@ class FCmd:
 	def __del__(self):
 		self.__ssh = None
 
-	def login(self, host='', user='root', password=''):
+	def login(self, host='', port=22, user='root', password=''):
 		self.__host = host
 		self.__user = user
 		self.__password = password
 
 		try:
-			p = ProcBar().start("logining server %s@%s ..." % (user, host))
-			self.__ssh = Ssh(host, username=user, password=password)
+			p = ProcBar().start("logining server %s@%s:%d ..." % (user, host, port))
+			self.__ssh = Ssh(host, port, username=user, password=password)
 			p.stop(color_str("OK", "green"))
 		except Exception as err:
 			if 'p' in locals().keys():
